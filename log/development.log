@@ -1,0 +1,508 @@
+Started GET "/" for 192.168.65.1 at 2024-05-26 04:47:00 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 468)
+Completed 200 OK in 46ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 9106)
+
+
+Started GET "/" for 192.168.65.1 at 2024-05-26 16:03:32 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.0ms | Allocations: 468)
+Completed 200 OK in 46ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 9107)
+
+
+  [1m[35m (123.6ms)[0m  [1m[35mCREATE DATABASE "marketplace_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (63.5ms)[0m  [1m[35mCREATE DATABASE "marketplace_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(235650319932047160)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-05-26 17:05:46.379674', '2024-05-26 17:05:46.379679') RETURNING "key"[0m
+Migrating to CreateUsers (20240526170506)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240526170506') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20240526170520)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "description" text, "price" decimal, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dee2631783"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_products_on_user_id" ON "products" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240526170520') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(235650319932047160)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/useres" for 192.168.65.1 at 2024-05-26 17:24:59 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/useres"):
+  
+Started GET "/users" for 192.168.65.1 at 2024-05-26 17:25:05 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 82ms (Views: 17.7ms | ActiveRecord: 9.6ms | Allocations: 20546)
+
+
+Started POST "/users" for 192.168.65.1 at 2024-05-26 17:26:51 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"John Doe", "email"=>"john@example.com", "user"=>{"name"=>"John Doe", "email"=>"john@example.com"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 7.6ms | Allocations: 465)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:293:in `handle_unverified_request'
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:388:in `handle_unverified_request'
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:377:in `verify_authenticity_token'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:202:in `block (2 levels) in halting'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:203:in `block in halting'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/users" for 192.168.65.1 at 2024-05-26 17:29:11 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"John Doe", "email"=>"john@example.com"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 452)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:293:in `handle_unverified_request'
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:388:in `handle_unverified_request'
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:377:in `verify_authenticity_token'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:202:in `block (2 levels) in halting'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:203:in `block in halting'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/users" for 192.168.65.1 at 2024-05-26 17:39:41 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"John Doe", "email"=>"john@example.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "John Doe"], ["email", "john@example.com"], ["created_at", "2024-05-26 17:39:42.280552"], ["updated_at", "2024-05-26 17:39:42.280552"]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+Completed 201 Created in 136ms (Views: 1.3ms | ActiveRecord: 35.4ms | Allocations: 85063)
+
+
+Started GET "/users" for 192.168.65.1 at 2024-05-26 17:41:46 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 1.4ms | Allocations: 864)
+
+
+Started GET "/users/1" for 192.168.65.1 at 2024-05-26 17:42:10 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `set_user'
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 1.7ms | Allocations: 1294)
+
+
+Started PATCH "/users/1" for 192.168.65.1 at 2024-05-26 17:43:03 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"name"=>"John Smith"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `set_user'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "john@example.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "John Smith"], ["updated_at", "2024-05-26 17:43:03.950532"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:23:in `update'
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 19.8ms | Allocations: 3458)
+
+
+Started GET "/users/1" for 192.168.65.1 at 2024-05-26 17:43:15 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `set_user'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 6.3ms | Allocations: 675)
+
+
+Started DELETE "/users/1" for 192.168.65.1 at 2024-05-26 17:43:47 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `set_user'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mUser Destroy (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+Completed 204 No Content in 72ms (ActiveRecord: 14.3ms | Allocations: 15142)
+
+
+Started GET "/users" for 192.168.65.1 at 2024-05-26 17:43:51 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 1.2ms | Allocations: 696)
+
+
+Started GET "/products" for 192.168.65.1 at 2024-05-26 17:44:13 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Started POST "/products" for 192.168.65.1 at 2024-05-26 17:46:21 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [POST] "/products"):
+  
+Started GET "/users" for 192.168.65.1 at 2024-05-26 20:24:13 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as */*
+  [1m[36mUser Load (58.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 70ms (Views: -20.3ms | ActiveRecord: 88.1ms | Allocations: 3655)
+
+
+Started POST "/users" for 192.168.65.1 at 2024-05-26 20:24:16 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"John Doe", "email"=>"john@example.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Create (3.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "John Doe"], ["email", "john@example.com"], ["created_at", "2024-05-26 20:24:16.837370"], ["updated_at", "2024-05-26 20:24:16.837370"]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+Completed 201 Created in 37ms (Views: 0.5ms | ActiveRecord: 9.0ms | Allocations: 2745)
+
+
+Started GET "/users" for 192.168.65.1 at 2024-05-26 20:24:18 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.0ms | Allocations: 757)
+
+
+Started GET "/users/1" for 192.168.65.1 at 2024-05-26 20:24:24 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `set_user'
+Completed 404 Not Found in 9ms (ActiveRecord: 1.6ms | Allocations: 1032)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:38:in `set_user'
+Started GET "/users/2" for 192.168.65.1 at 2024-05-26 20:24:43 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `set_user'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 658)
+
+
+Started GET "/products" for 192.168.65.1 at 2024-05-26 20:24:52 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Started GET "/user/2/products" for 192.168.65.1 at 2024-05-26 20:24:59 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/user/2/products"):
+  
+Started GET "/users/2/products" for 192.168.65.1 at 2024-05-26 20:25:27 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mProduct Load (5.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 3.4ms | ActiveRecord: 5.8ms | Allocations: 807)
+
+
+Started POST "/users/2/products" for 192.168.65.1 at 2024-05-26 20:25:46 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"title"=>"Sample Product", "description"=>"This is a sample product description.", "price"=>29.99, "user_id"=>1}, "user_id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:15:in `create'
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:15:in `create'
+Completed 422 Unprocessable Entity in 79ms (Views: 1.4ms | ActiveRecord: 16.6ms | Allocations: 56189)
+
+
+Started POST "/users/2/products" for 192.168.65.1 at 2024-05-26 20:26:07 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"title"=>"Sample Product", "description"=>"This is a sample product description.", "price"=>29.99, "user_id"=>2}, "user_id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:15:in `create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:15:in `create'
+  [1m[36mProduct Create (2.8ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Sample Product"], ["description", "This is a sample product description."], ["price", "29.99"], ["user_id", 2], ["created_at", "2024-05-26 20:26:08.027684"], ["updated_at", "2024-05-26 20:26:08.027684"]]
+  ↳ app/controllers/products_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:15:in `create'
+Completed 201 Created in 22ms (Views: 1.1ms | ActiveRecord: 6.2ms | Allocations: 2937)
+
+
+Started GET "/users/2/product" for 192.168.65.1 at 2024-05-26 20:40:09 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/product"):
+  
+Started GET "/users/2/product/1" for 192.168.65.1 at 2024-05-26 20:40:16 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/product/1"):
+  
+Started GET "/users/2/products/1" for 192.168.65.1 at 2024-05-26 20:40:34 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:38:in `set_product'
+Completed 200 OK in 36ms (Views: 0.6ms | ActiveRecord: 13.9ms | Allocations: 4272)
+
+
+Started PATCH "/users/2/products/1" for 192.168.65.1 at 2024-05-26 20:44:27 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#update as */*
+  Parameters: {"product"=>{"price"=>49.99, "user_id"=>2}, "user_id"=>"2", "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:38:in `set_product'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:23:in `update'
+  [1m[36mProduct Update (4.6ms)[0m  [1m[33mUPDATE "products" SET "price" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["price", "49.99"], ["updated_at", "2024-05-26 20:44:27.851890"], ["id", 1]]
+  ↳ app/controllers/products_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:23:in `update'
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 9.5ms | Allocations: 2547)
+
+
+Started DELETE "/users/2/products/1" for 192.168.65.1 at 2024-05-26 20:52:56 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#destroy as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:38:in `set_product'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:31:in `destroy'
+  [1m[36mProduct Destroy (3.6ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/products_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:31:in `destroy'
+Completed 204 No Content in 76ms (ActiveRecord: 34.9ms | Allocations: 5027)
+
+
+Started GET "/users/2/products/1" for 192.168.65.1 at 2024-05-26 20:53:01 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:38:in `set_product'
+Completed 404 Not Found in 7ms (ActiveRecord: 2.2ms | Allocations: 1005)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=1):
+  
+app/controllers/products_controller.rb:38:in `set_product'

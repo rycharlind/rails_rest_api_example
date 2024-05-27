@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: whatup03
+  host: host.docker.internal
+
+development:
+  <<: *default
+  database: marketplace_api_development
+
+test:
+  <<: *default
+  database: marketplace_api_test
+
+production:
+  <<: *default
+  database: marketplace_api_production
+  username: marketplace_api
+  password: <%= ENV['MARKETPLACE_API_DATABASE_PASSWORD'] %>

@@ -1,0 +1,10 @@
+FROM ruby:2.7
+
+RUN apt-get update && apt-get install -y curl bash sqlite3
+
+WORKDIR /project
+
+RUN gem install nokogiri -v 1.15.6
+RUN gem install rails
+
+CMD ["bash"]
