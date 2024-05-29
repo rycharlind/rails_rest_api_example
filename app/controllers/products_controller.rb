@@ -3,18 +3,15 @@ class ProductsController < ApplicationController
     before_action :set_user, only: [:index, :create]
   
     def index
-      print("index")
       @products = @user.products
       render json: @products
     end
   
     def show
-      print("show")
       render json: @product
     end
   
     def create
-      print("create")
       @product = @user.products.new(product_params)
       if @product.save
         render json: @product, status: :created
@@ -24,7 +21,6 @@ class ProductsController < ApplicationController
     end
   
     def update
-      print("update")
       if @product.update(product_params)
         render json: @product
       else
@@ -33,7 +29,6 @@ class ProductsController < ApplicationController
     end
   
     def destroy
-      print("destroy")
       @product.destroy
       head :no_content
     end
@@ -41,7 +36,6 @@ class ProductsController < ApplicationController
     private
   
     def set_product
-      print("set product - SUPPP")
       @product = Product.find(params[:id])
     end
 
