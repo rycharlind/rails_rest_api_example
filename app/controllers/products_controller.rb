@@ -1,14 +1,23 @@
 class ProductsController < ApplicationController
     before_action :set_product, only: [:show, :update, :destroy]
-    before_action :set_user, only: [:index, :create]
+    before_action :set_user, only: [:index, :create, :show]
   
     def index
       @products = @user.products
-      render json: @products
+      if @products
+        render json: @products
+      else
+        render json: { error: 'Products not found' }, status: :not_found
+      end
     end
   
     def show
-      render json: @product
+      @product = @user.products.find_by(id: params[:id])
+      if @product
+        render json: @product
+      else
+        render json: { error: 'Product not found or does not belong to the user' }, status: :not_found
+      end
     end
   
     def create
